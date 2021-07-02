@@ -19,6 +19,9 @@ public @interface EnumValid {
 
     String message() default "";
 
+    /**
+     * 要校验的枚举类
+     */
     Class<?> clazz();
 
     Class[] groups() default {};

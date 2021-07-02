@@ -3,6 +3,7 @@ package com.shiguangping.beanvalidationdemo.handler;
 import com.shiguangping.beanvalidationdemo.enums.RespStatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -30,6 +31,11 @@ public class GlobalExceptionHandler {
         e.printStackTrace();
         ObjectError error = e.getBindingResult().getAllErrors().get(0);
         return ExceResult.build(RespStatusEnum.getCodeByName(error.getCode()), error.getDefaultMessage());
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public Map<String, Object> httpRequestMethodNotSupportedExceptionHandler(HttpRequestMethodNotSupportedException e) {
+        return ExceResult.build(RespStatusEnum.REQUESTMETHOD.getCode(),RespStatusEnum.REQUESTMETHOD.getDesc());
     }
 
     static class ExceResult {

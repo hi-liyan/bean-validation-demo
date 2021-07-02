@@ -1,11 +1,14 @@
 package com.shiguangping.beanvalidationdemo.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.shiguangping.beanvalidationdemo.common.RespResult;
 import com.shiguangping.beanvalidationdemo.entity.User;
+import com.shiguangping.beanvalidationdemo.enums.RespStatusEnum;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +23,8 @@ import javax.validation.Valid;
 public class UserController {
 
     /**
-     * 入参示例：
      * {
-     *     "id": 1001,
+     *     "id": "1001",
      *     "name": "李达康",
      *     "age": 45,
      *     "gender": 1,
@@ -39,12 +41,14 @@ public class UserController {
      *             "id": "01",
      *             "name": "Java"
      *         }
-     *     ]
+     *     ],
+     *     "email": "111@1.com",
+     *     "addr": "1"
      * }
      */
     @PostMapping("add")
-    public ResponseEntity<User> addUser(@RequestBody @Valid User user) {
+    public ResponseEntity<RespResult> addUser(@RequestBody @Valid User user) {
         log.info("入参: {}", JSON.toJSONString(user));
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return new ResponseEntity<>(RespResult.build(RespStatusEnum.OK.getCode(), RespStatusEnum.OK.getDesc(), user), HttpStatus.OK);
     }
 }

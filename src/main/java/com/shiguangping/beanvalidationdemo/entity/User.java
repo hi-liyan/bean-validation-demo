@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -86,5 +88,11 @@ public class User {
     @NotEmpty(message = "hobbies: 不允许为空")
     @Size(min = 2, max = 5, message = "hobbies: 元素个数2~5")
     private List<String> hobbies;
+
+    @Email(message = "email: 邮箱格式不正确")
+    private String email;
+
+    @NotBlank(message = "addr: 地址不能为空")
+    private String addr;
 
 }
