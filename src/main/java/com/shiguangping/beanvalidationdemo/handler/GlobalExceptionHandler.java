@@ -1,7 +1,5 @@
 package com.shiguangping.beanvalidationdemo.handler;
 
-import cn.hutool.core.map.MapUtil;
-import cn.hutool.core.util.StrUtil;
 import com.shiguangping.beanvalidationdemo.enums.RespStatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.ObjectError;

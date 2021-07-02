@@ -22,7 +22,9 @@ public enum RespStatusEnum {
     MAX(2006, "Max", ""),
     DECIMALMIN(2005, "DecimalMin", ""),
     DECIMALMAX(2006, "DecimalMax", ""),
-    SIZE(2007, "Size", "元素个数不在取值范围内");
+    SIZE(2007, "Size", "元素个数不在取值范围内"),
+    PATTERN(2008, "Pattern", "格式不正确"),
+    NOTEMPTY(2009, "NotEmpty", "");
 
     private Integer code;
     private String name;

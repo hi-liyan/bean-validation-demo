@@ -19,6 +19,29 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class UserController {
 
+    /**
+     * 入参示例：
+     * {
+     *     "id": 1001,
+     *     "name": "李达康",
+     *     "age": 45,
+     *     "gender": 1,
+     *     "bool1": true,
+     *     "balance": 1,
+     *     "birthday": "2021-7-1",
+     *     "hobbies": [
+     *         "吃饭",
+     *         "睡觉"
+     *     ],
+     *     "mobile": "18599999999",
+     *     "languages": [
+     *         {
+     *             "id": "01",
+     *             "name": "Java"
+     *         }
+     *     ]
+     * }
+     */
     @PostMapping("add")
     public ResponseEntity<User> addUser(@RequestBody @Valid User user) {
         log.info("入参: {}", JSON.toJSONString(user));

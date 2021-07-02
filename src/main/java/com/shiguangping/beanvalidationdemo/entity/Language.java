@@ -13,9 +13,9 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class Language {
 
-    @NotNull
+    @NotNull(message = "Language#id: 不能为空")
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Language#name: 不能为空")
     private String name;
 }

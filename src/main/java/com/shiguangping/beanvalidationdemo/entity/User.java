@@ -1,10 +1,14 @@
 package com.shiguangping.beanvalidationdemo.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.shiguangping.beanvalidationdemo.enums.GenderEnum;
+import com.shiguangping.beanvalidationdemo.enums.annotation.EnumValid;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -36,16 +40,21 @@ public class User {
     /**
      * 性别 1男 2女
      */
+    @EnumValid(clazz = GenderEnum.class, message = "gender: 超出枚举范围")
     private Integer gender;
 
     /**
      * 出生日期
      */
+    @Past(message = "birthday: 出生日期不能大于今天")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date birthday;
 
     /**
      * 电话号码
      */
+    @Pattern(regexp = "^((13[0-9])|(14[5-9])|(15([0-3]|[5-9]))|(16[6-7])|(17[1-8])|(18[0-9])|(19[1|3])|(19[5|6])|(19[8|9]))\\d{8}$",
+            message = "mobile: 手机号格式不正确")
     private String mobile;
 
     /**
@@ -58,6 +67,8 @@ public class User {
     /**
      * 擅长的编程语言
      */
+    @Valid
+    @NotEmpty(message = "languages: 不能为空")
     private List<Language> languages;
 
     /**
