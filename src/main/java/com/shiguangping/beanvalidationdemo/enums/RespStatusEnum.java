@@ -24,7 +24,8 @@ public enum RespStatusEnum {
     DECIMALMAX(2006, "DecimalMax", ""),
     SIZE(2007, "Size", "元素个数不在取值范围内"),
     PATTERN(2008, "Pattern", "格式不正确"),
-    NOTEMPTY(2009, "NotEmpty", "");
+    NOTEMPTY(2009, "NotEmpty", ""),
+    ENUMVALID(2010,"EnumValid","");
 
     private Integer code;
     private String name;
