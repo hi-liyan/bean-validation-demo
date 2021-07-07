@@ -11,15 +11,23 @@ public class RespResult<T> {
 
     private T data;
 
-    public RespResult(Integer code, String msg) {
+    private RespResult(Integer code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public RespResult(Integer code, String msg, T data) {
+    private RespResult(Integer code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
+    }
+
+    public static RespResult build(Integer code, String msg) {
+        return new RespResult(code, msg);
+    }
+
+    public static <T> RespResult build(Integer code, String msg, T data) {
+        return new RespResult(code, msg, data);
     }
 
 }
