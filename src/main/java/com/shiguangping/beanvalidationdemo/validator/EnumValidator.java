@@ -1,6 +1,7 @@
-package com.shiguangping.beanvalidationdemo.enums.annotation;
+package com.shiguangping.beanvalidationdemo.validator;
 
 import cn.hutool.core.util.ObjectUtil;
+import com.shiguangping.beanvalidationdemo.annotation.EnumValid;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 

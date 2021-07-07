@@ -1,8 +1,9 @@
 package com.shiguangping.beanvalidationdemo.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.shiguangping.beanvalidationdemo.annotation.DateFormatValid;
 import com.shiguangping.beanvalidationdemo.enums.GenderEnum;
-import com.shiguangping.beanvalidationdemo.enums.annotation.EnumValid;
+import com.shiguangping.beanvalidationdemo.annotation.EnumValid;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -86,5 +87,8 @@ public class User {
     @NotEmpty(message = "hobbies: 不允许为空")
     @Size(min = 2, max = 5, message = "hobbies: 元素个数2~5")
     private List<String> hobbies;
+
+    @DateFormatValid(message = "dateStr: 日期格式不正确")
+    private String dateStr;
 
 }
