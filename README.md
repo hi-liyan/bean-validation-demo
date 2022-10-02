@@ -23,7 +23,7 @@ JSR是`Java Specification Requests`的缩写，即 Java 规范请求，它是对
 
 <br>
 
-### 参考
+**参考**
 
 - [JSR概述](https://jcp.org/en/jsr/overview)
 
@@ -241,17 +241,16 @@ public class GlobalExceptionHandler {
 
    ```java
    /**
-        * 性别 1男 2女
-        */
+    * 性别 1男 2女
+    */
    @EnumValid(clazz = GenderEnum.class, message = "gender: 超出枚举范围")
    private Integer gender;
    ```
 
 4. 测试。
 
-   <img src="https://images.shiguangping.com/imgs/20210703001155.png" alt="image-20210703001155225" style="width:80%;" />
+   <img src="https://upyun1.surcode.cn/imgs/20210703001155.png" />
 
-**可以到[Gitee仓库](https://gitee.com/ENNRIAAA/bean-validation-demo.git)查看具体示例代码。**
 
 
 
