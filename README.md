@@ -99,7 +99,7 @@ Spring Boot项目也可直接引用官方封装好的Starter。
 
 使用参数校验有这么一种应用场景，在校验请求参数时，当某个请求参数不合法时，会向前端返回相应的错误信息，如下图：
 
-<img src="https://images.shiguangping.com/imgs/20210702232829.png" alt="image-20210702232828955" style="width:80%;" />
+<img src="https://upyun1.surcode.cn/imgs/20210702232829.png" />
 
 这种方式，是通过Spring MVC的两个注解（`@ControllerAdvice` + `@ExceptionHandler`）实现的统一异常处理。
 
